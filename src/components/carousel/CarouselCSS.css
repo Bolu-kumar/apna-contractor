@@ -1,0 +1,63 @@
+
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item {
+        position: relative;
+        min-height: 500px;
+    }
+    
+    .header-carousel .owl-carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .header-carousel .owl-carousel-item h5,
+    .header-carousel .owl-carousel-item p {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+
+    .header-carousel .owl-carousel-item h1 {
+        font-size: 30px;
+        font-weight: 600;
+    }
+}
+
+.header-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-carousel {
+    position: relative; /* Ensure the container is positioned */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center align if needed */
+}
+
+.header-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure it's above the carousel content */
+}
+
+.header-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure it's above the carousel content */
+}
+
+@media (max-width: 768px) {
+    .header-carousel .owl-nav .owl-prev,
+    .header-carousel .owl-nav .owl-next {
+        display: none; /* Hide arrows on smaller screens if needed */
+    }
+}

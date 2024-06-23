@@ -1,0 +1,111 @@
+.container-fluid {
+    padding: 0 15px;
+}
+
+.row.g-0 {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col-lg-3, .col-md-12, .col-lg-9 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.display-3 {
+    font-size: 4.5rem;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+/* .bg-light {
+    background-color: #f8f9fa !important;
+} */
+
+.btn-square {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+}
+
+.service-carousel {
+    display: flex;
+}
+
+.service-carousel > div {
+    margin-right: 20px;
+}
+
+@media (min-width: 992px) {
+    .ms-lg-5 {
+        margin-left: 3rem !important;
+    }
+    .ps-lg-5 {
+        padding-left: 3rem !important;
+    }
+}
+
+/*** Service ***/
+.service-item-top img {
+    transition: .5s;
+}
+
+.service-item-top:hover img {
+    transform: scale(1.1);
+}
+
+.service-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.service-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    border: 5px solid var(--light);
+    transition: .5s;
+}
+
+.service-carousel .owl-dot.active {
+    background: var(--light);
+    border-color: var(--primary);
+}
+
+@media (max-width: 575.98px) {
+    .owl-carousel .bg-light {
+        padding: 1rem;
+    }
+
+    .h1, h1 {
+        font-size: 1.5rem;
+    }
+
+    .mb-5 {
+        margin-bottom: 2rem;
+    }
+
+    .service-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-carousel > div {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
