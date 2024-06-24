@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import {
   BsGrid1X2Fill,
   BsPeopleFill,
@@ -7,9 +7,8 @@ import {
   BsFillGearFill,
   BsFront,
 } from "react-icons/bs";
-
 import { Badge } from "react-bootstrap";
-import { BiLogOut, BiUser } from "react-icons/bi";
+import { BiUser, BiWindowClose } from "react-icons/bi";
 import Logout from "../../auth/components/logout/LogoutComponent";
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
@@ -23,7 +22,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           <Badge className="icon_header" /> RKDK ADMIN{" "}
         </div>
         <span className="icon close_icon" onClick={OpenSidebar}>
-          X
+          <BiWindowClose /> {/* Close icon */}
         </span>
       </div>
 

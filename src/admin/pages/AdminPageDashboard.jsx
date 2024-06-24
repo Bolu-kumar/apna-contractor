@@ -17,7 +17,7 @@ import {
   Line,
 } from "recharts";
 
-function Home() {
+function AdminPageDashboard() {
   const data = [
     {
       name: "Page A",
@@ -154,4 +154,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AdminPageDashboard;

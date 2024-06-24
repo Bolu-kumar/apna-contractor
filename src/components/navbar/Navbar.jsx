@@ -120,6 +120,13 @@ const NavbarComponent = () => {
             >
               Contact
             </Link>
+            <Link
+              to="/login"
+              className="nav-item nav-link"
+              onClick={closeNavMenu}
+            >
+              Login
+            </Link>
           </div>
           <div className="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-warning d-flex align-items-center">
             <div

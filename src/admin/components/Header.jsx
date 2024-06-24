@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../assets/css/Admin.css";
 import PropTypes from "prop-types";
 import {
   BsFillBellFill,
@@ -8,6 +7,7 @@ import {
   BsSearch,
   BsJustify,
 } from "react-icons/bs";
+import "../assets/css/Admin.css";
 
 function Header({ OpenSidebar }) {
   const [searchTerm, setSearchTerm] = useState("");
