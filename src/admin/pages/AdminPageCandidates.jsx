@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "../../firebaseConfig/firebaseConfig";
 import { Table } from "react-bootstrap";
-import CustomPagination from "../../components/pagination/PaginationComponents"; // Import the pagination component
-// import "bootstrap/dist/css/bootstrap.min.css";
+import CustomPagination from "../../components/pagination/PaginationComponents";
+import formatDate from "../components/DateFormat"; // Adjust the path based on your project structure
 
 const AdminPageCandidates = () => {
   const [candidates, setCandidates] = useState([]);
@@ -46,7 +46,7 @@ const AdminPageCandidates = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4  bg-dark p-3 text-center text-white">
+      <h2 className="mb-4 bg-dark p-3 text-center text-white">
         Candidates Data:
       </h2>
       <Table striped bordered hover responsive>
@@ -59,6 +59,7 @@ const AdminPageCandidates = () => {
             <th>Experience</th>
             <th>Message</th>
             <th>Resume</th>
+            <th>Timestamp</th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +72,8 @@ const AdminPageCandidates = () => {
               <td>{candidate.experience}</td>
               <td>{candidate.message}</td>
               <td>{candidate.resume}</td>
+              <td>{formatDate(candidate.timestamp)}</td>{" "}
+              {/* Use formatDate here */}
             </tr>
           ))}
         </tbody>

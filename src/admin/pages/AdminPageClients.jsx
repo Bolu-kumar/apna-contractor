@@ -3,7 +3,8 @@ import { ref, get } from "firebase/database";
 import { db } from "../../firebaseConfig/firebaseConfig";
 import { Table } from "react-bootstrap";
 import CustomPagination from "../../components/pagination/PaginationComponents"; // Import the pagination component
-// import "bootstrap/dist/css/bootstrap.min.css";
+import formatDate from "../components/DateFormat";
+
 const AdminPageClients = () => {
   const [clients, setClients] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,6 +59,7 @@ const AdminPageClients = () => {
             <th>Starting Date</th>
             <th>Duration</th>
             <th>Manpower</th>
+            <th>Timestamp</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +72,7 @@ const AdminPageClients = () => {
               <td>{client.startingDate}</td>
               <td>{client.duration}</td>
               <td>{client.manpower}</td>
+              <td>{formatDate(client.timestamp)}</td>{" "}
             </tr>
           ))}
         </tbody>

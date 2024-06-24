@@ -22,7 +22,7 @@ const Logout = () => {
   };
 
   return (
-    <li className="sidebar-list-item" onClick={handleLogout}>
+    <li className="sidebar-list-item text-white" onClick={handleLogout}>
       <BiLogOut className="icon" />
       Logout
     </li>
