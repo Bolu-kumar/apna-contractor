@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import PropTypes from "prop-types";
 import "./AutoPopupModalCSS.css"; // Import the CSS file
+import RequestForWorkButton from "../button/CandidatesButton";
+import ContractWorkRequestButton from "../button/ClientsButton";
 
 const AutoPopupModal = ({ showInitially, modalData }) => {
   const [showModal, setShowModal] = useState(showInitially);
@@ -12,6 +14,11 @@ const AutoPopupModal = ({ showInitially, modalData }) => {
 
   const handleClose = () => setShowModal(false);
 
+  const buttonLinks = {
+    requestForWorkLink: modalData.requestForWorkLink,
+    requestForContractLink: modalData.requestForContractLink,
+  };
+
   return (
     <Modal
       show={showModal}
@@ -20,37 +27,24 @@ const AutoPopupModal = ({ showInitially, modalData }) => {
       keyboard={false}
       dialogClassName="custom-modal"
       centered
-      className="mt-5"
+      className="mt-5 autoPopUp-margin"
     >
       <Modal.Header closeButton>
         <Modal.Title>{modalData.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>{modalData.message}</p>
-        <Button
-          variant="primary"
-          onClick={handleClose}
-          className="me-2 btn-rounded"
-        >
-          <a
-            href={modalData.requestForWorkLink}
-            className="text-white text-decoration-none"
-          >
-            Request For Work
-          </a>
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={handleClose}
-          className="btn-rounded"
-        >
-          <a
-            href={modalData.requestForContractLink}
-            className="text-white text-decoration-none"
-          >
-            Contract Work Request
-          </a>
-        </Button>
+
+        <RequestForWorkButton
+          handleClose={handleClose}
+          buttonLink={buttonLinks.requestForWorkLink}
+        />
+
+        <ContractWorkRequestButton
+          handleClose={handleClose}
+          buttonLink={buttonLinks.requestForContractLink}
+        />
+
         {modalData.imageUrl && (
           <div className="modal-image-container mt-4">
             <img
@@ -60,16 +54,6 @@ const AutoPopupModal = ({ showInitially, modalData }) => {
             />
           </div>
         )}
-        {/* <div className="contact-info mt-4">
-          <p>
-            <strong>Phone:</strong>{" "}
-            <a href={`tel:${modalData.phone}`}>{modalData.phone}</a>
-          </p>
-          <p>
-            <strong>Email:</strong>{" "}
-            <a href={`mailto:${modalData.email}`}>{modalData.email}</a>
-          </p>
-        </div> */}
       </Modal.Body>
     </Modal>
   );

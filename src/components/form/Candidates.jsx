@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { getDatabase, ref, push, serverTimestamp } from "firebase/database";
+// import firebaseApp from "../../firebaseConfig/firebaseConfig"; // Adjust path as per your project structure
 import firebaseApp from "../../firebaseConfig/firebaseConfig"; // Adjust path as per your project structure
+
 import "./CandidateCSS.css"; // Import CSS file for styling
 
 const CandidatesFormComponent = () => {

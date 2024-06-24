@@ -110,7 +110,7 @@ const NavbarComponent = () => {
               className="nav-item nav-link"
               onClick={closeNavMenu}
             >
-              Clients
+              Contract
             </Link>
 
             <Link

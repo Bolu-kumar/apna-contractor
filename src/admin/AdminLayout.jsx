@@ -1,27 +1,27 @@
-// import React from "react";
-import PropTypes from "prop-types";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
-import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import AdminHeader from "./components/Header";
+import AdminFooter from "./components/Footer";
+import AdminSidebar from "./components/Sidebar";
+import Home from "./components/Home";
+import "./assets/css/Admin.css";
 
 const AdminLayout = () => {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
+
   return (
-    <div className="admin-layout">
-      <Header />
-      <div className="admin-main">
-        <Sidebar />
-        <div className="admin-content">
-          <Outlet />
-        </div>
-      </div>
-      <Footer />
+    <div className="grid-container">
+      <AdminHeader OpenSidebar={OpenSidebar} />
+      <AdminSidebar openSidebarToggle={openSidebarToggle} />
+      <main className="main-container">
+        <Home />
+      </main>
+      <AdminFooter />
     </div>
   );
-};
-
-AdminLayout.propTypes = {
-  children: PropTypes.node,
 };
 
 export default AdminLayout;

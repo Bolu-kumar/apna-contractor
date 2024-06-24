@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import RequestForWorkButton from "../button/CandidatesButton";
-import ContractWorkRequestButton from "../button/ClientsButton";
+
 import "./CarouselCSS.css";
 
 const CarouselComponent = ({ items }) => {
@@ -18,10 +17,6 @@ const CarouselComponent = ({ items }) => {
       '<i class="bi bi-chevron-left"></i>',
       '<i class="bi bi-chevron-right"></i>',
     ],
-  };
-
-  const handleClose = () => {
-    console.log("Button clicked");
   };
 
   return (
@@ -49,18 +44,20 @@ const CarouselComponent = ({ items }) => {
                     <p className="fs-5 fw-medium text-white mb-4 pb-2">
                       {item.description}
                     </p>
-                    <div
-                      className="d-flex 
-                     flex-wrap justify-content-center"
-                    >
-                      <RequestForWorkButton
-                        handleClose={handleClose}
-                        buttonLink={item.candidates}
-                      />
-                      <ContractWorkRequestButton
-                        handleClose={handleClose}
-                        buttonLink={item.clients}
-                      />
+                    <div className="d-flex flex-wrap justify-content-center">
+                      <a
+                        href={item.candidates}
+                        className="btn btn-primary btn-rounded btn-lg py-md-3 px-md-5 me-3 mb-3 animated slideInLeft text-lg"
+                      >
+                        Request For Work
+                      </a>
+
+                      <a
+                        href={item.clients}
+                        className="btn btn-secondary btn-rounded btn-lg py-md-3 px-md-5 mb-3 animated slideInRight text-lg"
+                      >
+                        Contract Work Request
+                      </a>
                     </div>
                   </div>
                 </div>

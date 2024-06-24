@@ -61,3 +61,37 @@
         display: none; /* Hide arrows on smaller screens if needed */
     }
 }
+
+
+
+.btn a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    
+  
+  }
+
+  .btn-rounded {
+    border-radius: 50px;
+  }
+
+  /* Add this to your custom CSS file */
+
+
+  /* Add this to your custom CSS file */
+
+
+  
+  
+  @media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+    .btn-large {
+      padding: 1rem 3rem; /* Larger padding for large devices */
+      font-size: 1.5rem; /* Larger font size for large devices */
+    }
+  }
+  
+  
+  
+  
+ 

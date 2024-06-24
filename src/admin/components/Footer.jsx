@@ -1,11 +1,12 @@
 // import React from "react";
-
-const Footer = () => {
+import "../assets/css/Admin.css";
+const AdminFooter = () => {
   return (
     <footer className="admin-footer">
-      <p>&copy; 2024 Admin Panel</p>
+      <p>Admin Footer</p>
+      {/* Add more footer content here */}
     </footer>
   );
 };
 
-export default Footer;
+export default AdminFooter;

@@ -57,3 +57,22 @@
     padding: 10px 20px;
   }
 }
+
+@media (max-width: 992px) {
+  .autoPopUp-margin {
+    margin-top: -100px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .autoPopUp-margin {
+    margin-top: 100px !important;
+  }
+}
+
+@media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+  .btn-autoPopUp {
+    padding: 1rem 2rem; /* Larger padding for large devices */
+    font-size: 1rem; /* Larger font size for large devices */
+  }
+}

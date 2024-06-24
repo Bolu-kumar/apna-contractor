@@ -1,22 +1,80 @@
-// import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import {
+  BsGrid1X2Fill,
+  BsPeopleFill,
+  BsMenuButtonWideFill,
+  BsFillGearFill,
+  BsFront,
+} from "react-icons/bs";
 
-const Sidebar = () => {
+import { Badge } from "react-bootstrap";
+import { BiLogOut, BiUser } from "react-icons/bi";
+import Logout from "../../auth/components/logout/LogoutComponent";
+
+function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
-    <nav className="admin-sidebar">
-      <ul>
-        <li>
-          <Link to="/admin/dashboard">Dashboard</Link>
+    <aside
+      id="sidebar"
+      className={openSidebarToggle ? "sidebar-responsive" : ""}
+    >
+      <div className="sidebar-title">
+        <div className="sidebar-brand">
+          <Badge className="icon_header" /> RKDK ADMIN{" "}
+        </div>
+        <span className="icon close_icon" onClick={OpenSidebar}>
+          X
+        </span>
+      </div>
+
+      <ul className="sidebar-list text-dark">
+        <li className="sidebar-list-item">
+          <Link
+            to="/admin/dashboard"
+            className="nav-link bg-warning text-white"
+          >
+            <BsGrid1X2Fill className="icon " /> Dashboard
+          </Link>
         </li>
-        <li>
-          <Link to="/admin/users">Users</Link>
+
+        <li className="sidebar-list-item">
+          <Link to="/admin/clients" className="nav-link">
+            <BiUser className="icon" /> Clients
+          </Link>
         </li>
-        <li>
-          <Link to="/admin/settings">Settings</Link>
+        <li className="sidebar-list-item">
+          <Link to="/admin/candidates" className="nav-link">
+            <BsPeopleFill className="icon" /> Candidates
+          </Link>
         </li>
+
+        <li className="sidebar-list-item">
+          <Link to="/admin/reports" className="nav-link">
+            <BsMenuButtonWideFill className="icon" /> Reports
+          </Link>
+        </li>
+
+        <li className="sidebar-list-item">
+          <Link to="/admin/frontEnd" className="nav-link">
+            <BsFront className="icon" /> FrontEnd
+          </Link>
+        </li>
+
+        <li className="sidebar-list-item">
+          <Link to="/admin/settings" className="nav-link">
+            <BsFillGearFill className="icon" /> Setting
+          </Link>
+        </li>
+
+        <Logout />
       </ul>
-    </nav>
+    </aside>
   );
+}
+
+Sidebar.propTypes = {
+  openSidebarToggle: PropTypes.bool.isRequired,
+  OpenSidebar: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

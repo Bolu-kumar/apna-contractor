@@ -119,6 +119,7 @@ npm install bootstrap react-bootstrap
 
 npm install firebase
 
+npm install @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
 
 
 ============================ authentication ================================
