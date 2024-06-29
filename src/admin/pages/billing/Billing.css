@@ -1,0 +1,115 @@
+/* 
+.container {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+
+
+}
+
+.main-section {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+
+}
+
+.total-amount {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.text-end {
+    text-align: right;
+    /* Aligns text to the right */
+}
+
+.invoice {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.invoice h3 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.invoice-table {
+    width: 100%;
+    text-align: left;
+}
+
+.invoice-table th {
+    font-weight: bold;
+    background-color: #f1f1f1;
+}
+
+.invoice-table td {
+    padding: 8px;
+}
+
+.invoice p {
+    margin: 0;
+    padding: 4px 0;
+
+}
+
+.thank-you-section {
+    margin-top: 200px;
+    /* Add space before the thank-you section */
+    text-align: left;
+    /* Center the text */
+}
+
+.thank-you-section p {
+    font-weight: bold;
+    margin: 10px 0;
+    /* Margin around the text */
+}
+
+.thank-you-section ul {
+    list-style: none;
+    /* No bullets */
+    padding: 0;
+    /* No padding */
+    margin: 10px 0;
+    /* Margin around the list */
+}
+
+.thank-you-section li {
+    margin-bottom: 5px;
+    /* Space between list items */
+}
+
+/* Print media query to hide non-invoice elements */
+@media print {
+    body * {
+        visibility: hidden;
+        /* Hide all elements by default */
+    }
+
+    #invoiceSection,
+    #invoiceSection * {
+        visibility: visible;
+        /* Only display the invoice section */
+    }
+
+    #invoiceSection {
+        position: absolute;
+        /* Fix the position to avoid layout shifts */
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #downloadInvoiceButton,
+    #printInvoiceButton,
+    #closePreviewButton,
+    #editButton,
+    #saveDataButton {
+        display: none;
+        /* Hide the print and download buttons during printing */
+    }
+} */

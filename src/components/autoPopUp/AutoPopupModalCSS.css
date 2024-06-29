@@ -1,0 +1,82 @@
+.custom-modal .modal-dialog {
+  margin: 0;
+  position: absolute;
+  top: 50% !important; /* Adjust this value to control vertical positioning below the navbar */
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -99;
+  border: 2px;
+}
+
+.custom-modal .modal-header, 
+.custom-modal .modal-body {
+  text-align: center;
+  margin-top: 10px!important;
+
+}
+
+.custom-modal .btn a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  
+
+}
+
+.custom-modal .btn-rounded {
+  border-radius: 50px;
+}
+
+.custom-modal .modal-image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  text-align: left;
+
+
+}
+
+.contact-info a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .custom-modal .modal-dialog {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    
+
+  }
+
+  .custom-modal .btn {
+    font-size: 11px;
+    padding: 10px 10px;
+    
+  }
+}
+
+@media (max-width: 992px) {
+  .autoPopUp-margin {
+    margin-top: -100px !important;
+    padding-top: 200px;
+
+  }
+}
+
+@media (min-width: 992px) {
+  .autoPopUp-margin {
+    margin-top: 100px !important;
+  }
+}
+
+@media (min-width: 992px) { 
+  .btn-autoPopUp {
+    padding: 1rem 2rem; 
+    font-size: 1rem; 
+  }
+}

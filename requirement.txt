@@ -1,0 +1,225 @@
+===================create react app by using vite================
+
+npm create vite@latest ridi-trading
+cd ridi-trading
+npm install
+npm run dev
+
+
+==============press h + enter to show help:  Shortcuts===============
+  press r + enter to restart the server
+  press u + enter to show server url
+  press o + enter to open in browser
+  press c + enter to clear console
+  press q + enter to quit
+
+================= Folder structure================================
+
+my-vite-app/
+├── public/
+│   ├── lib/
+│   ├── scss/
+│   ├── css/
+│   ├── js/
+│   ├── img/
+│   └── index.html
+├── src/
+│   ├── components/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+├── vite.config.js
+└── ...
+
+=====================================AdminPanel Folder Structure ==================================
+src
+├── admin
+│   ├── components
+│   │   ├── Header.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── Footer.jsx
+│   ├── pages
+│   │   ├── Dashboard.jsx
+│   │   ├── Users.jsx
+│   │   └── Settings.jsx
+│   ├── AdminLayout.jsx
+│   └── AdminRouter.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+
+
+============Link CSS and JS in index.html: Open my-react-app/index.html and link your CSS and JS files: ====================
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+   
+
+    <link href="./public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+    <div id="root"></div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/lib/wow/wow.min.js"></script>
+    <script src="./public/lib/easing/easing.min.js"></script>
+    <script src="./public/lib/waypoints/waypoints.min.js"></script>
+    <script src="./public/lib/counterup/counterup.min.js"></script>
+    <script src="./public/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./public/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="./public/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="./public/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+      <!-- Template Javascript -->
+      <script src="./public/js/main.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+
+
+========================== Download all lib =====================================
+
+npm install react-owl-carousel
+npm install -D sass
+npm install prop-types
+npm install owl.carousel
+npm install react-router-dom
+npm install react-icons recharts
+npm install react-countup
+npm install jquery owl.carousel
+npm install bootstrap react-bootstrap
+
+npm install firebase
+npm install react-query
+
+npm install @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+
+============================ authentication ================================
+
+To extend the concept of using a ProtectedRoute for conditional rendering based on authentication to also handle admin routing, you can modify the ProtectedRoute approach to accommodate both authenticated regular users and authenticated admin users. Here’s how you can structure your components:
+
+Step-by-Step Implementation:
+Create a ProtectedRoute Component:
+This component will handle conditional rendering based on authentication status (authenticated and isAdmin flags).
+
+jsx
+Copy code
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
+// Example of a ProtectedRoute component
+const ProtectedRoute = ({ component: Component, isAuthenticated, isAdmin, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      isAuthenticated ? (
+        isAdmin ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/welcome" />
+        )
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+export default ProtectedRoute;
+Props Explanation:
+component: The component to render if the conditions are met (Welcome component for regular users or AdminComponent for admins).
+isAuthenticated: Boolean flag indicating whether the user is authenticated.
+isAdmin: Boolean flag indicating whether the authenticated user is an admin.
+Usage in AllRoutes Component:
+Integrate the ProtectedRoute component into your routing setup for handling both regular and admin routes.
+
+jsx
+Copy code
+import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Login from './Login';
+import SignUp from './SignUp';
+import Welcome from './Welcome';
+import AdminComponent from './AdminComponent';
+import ProtectedRoute from './ProtectedRoute'; // Adjust import path as per your project structure
+
+class AllRoutes extends Component {
+  state = {
+    isAuthenticated: false, // Example state for authentication
+    isAdmin: false, // Example state for admin rights
+  };
+
+  render() {
+    const { isAuthenticated, isAdmin } = this.state;
+
+    return (
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+
+        {/* ProtectedRoute for regular users */}
+        <ProtectedRoute
+          exact
+          path="/welcome"
+          component={Welcome}
+          isAuthenticated={isAuthenticated}
+          isAdmin={false} // Regular user, not admin
+        />
+
+        {/* ProtectedRoute for admin users */}
+        <ProtectedRoute
+          exact
+          path="/admin"
+          component={AdminComponent}
+          isAuthenticated={isAuthenticated}
+          isAdmin={isAdmin} // Admin user
+        />
+
+        {/* Redirect to login if no match */}
+        <Redirect to="/login" />
+      </Switch>
+    );
+  }
+}
+
+export default AllRoutes;
+Explanation:
+AllRoutes Component: Manages state (isAuthenticated and isAdmin) to determine if the user is authenticated and if they have admin rights.
+ProtectedRoute Usage: Utilizes the ProtectedRoute component for conditional rendering:
+Regular users (/welcome route) are redirected to /login if not authenticated.
+Admin users (/admin route) are redirected to /login if not authenticated or not admins.
+Redirect: Ensures any unmatched routes redirect to /login.
+Notes:
+Authentication State: Replace isAuthenticated and isAdmin state handling with your actual authentication logic (e.g., from context, Redux, or authentication service).
+Component Imports: Adjust component paths (Login, SignUp, Welcome, AdminComponent) as per your project structure.
+Route Paths: Customize paths (/login, /welcome, /admin) based on your application’s routing needs.
+This setup ensures that your application handles both regular and admin users' authentication and authorization seamlessly through conditional rendering of routes using the ProtectedRoute component. Adjust as per your specific requirements and authentication mechanism.
